@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet" href="/css/styles1.css")
+        title User Reviews
+    body
+        header
+            h1 User Reviews
+            nav
+                a(href="/") Home
+                a(href="/rent") Rent
+                a(href="/about") About
+                a(href="/contact") Contact
+        main
+            h2 Submit a Review
+            form(action="/submit-review" method="POST")
+                div
+                    input(type="text" name="name" placeholder="Your Name" required)
+                div
+                    input(type="number" name="rating" min="1" max="5" placeholder="Rating (1-5)" required)
+                div
+                    textarea(name="comment" placeholder="Your Review" required)
+                button(type="submit") Submit Review
+
+            h2 Previous Reviews
+            ul
+                if reviews.length === 0
+                    li No reviews available. Be the first to review!
+                else
+                    each review in reviews
+                        li
+                            h3 #{review.name} - Rating: #{review.rating}
+                            p #{review.comment}
+                            p
+                                small Submitted on: #{review.date.toDateString()}
+        footer
+            p &copy; 2024 Kinnu Car Rentals | Car Rental Platform

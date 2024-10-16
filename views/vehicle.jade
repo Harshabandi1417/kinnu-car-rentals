@@ -1,0 +1,17 @@
+// views/vehicle.pug
+doctype html
+html(lang="en")
+    head
+        title Vehicle Details
+    body
+        header
+            h1 Vehicle Rental
+            nav
+                a(href="/") Home
+                a(href="/rent") Rent
+                a(href="/about") About
+                a(href="/contact") Contact
+        main
+            h2 #{vehicle.name}
+            p Price: $#{vehicle.price} per day
+            p Description: #{vehicle.description}

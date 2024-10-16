@@ -1,0 +1,65 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet", href="/css/styles1.css")
+    title Contact Us | Kinnu Car Rentals
+  body
+    header
+      h1 Contact Us
+      nav
+        a(href="/") Home
+        a(href="/rent") Rent
+        a(href="/about") About
+        a(href="/contact") Contact
+    main.contact-page
+      h1 Get in Touch
+      p
+        | For any inquiries, you can reach us at: 
+        br
+        strong 22EG106B18@anurag.edu.in - Yasmeen Farhana
+        br
+        strong 22EG106B22@anurag.edu.in - Bandi Harshavardhan
+        br
+        strong 22EG106B14@anurag.edu.in - Narasimha
+      
+      h2 Leave a Review
+      button#reviewButton Write a Review
+      
+      form#reviewForm(style="display:none;", method="POST", action="/submit-review")
+        h3 Your Review
+        textarea(name="review", rows="4", required, placeholder="Write your review here...")
+        br
+        input(type="text", name="name", required, placeholder="Your Name")
+        br
+        button(type="submit") Submit Review
+        button(type="button", id="cancelButton") Cancel
+
+      h2 Follow Us
+      p Stay updated with the available latest cars:
+      ul
+        li
+          a(href="#") Facebook
+        li
+          a(href="#") Twitter
+        li
+          a(href="#") LinkedIn
+      h2 Feedback
+      p Your feedback is important to us! Please let us know how we can improve our services.
+
+    footer
+      p &copy; 2024 Kinnu Car Rentals | Car Rental Platform
+
+    script.
+      const reviewButton = document.getElementById('reviewButton');
+      const reviewForm = document.getElementById('reviewForm');
+      const cancelButton = document.getElementById('cancelButton');
+
+      reviewButton.addEventListener('click', () => {
+        reviewForm.style.display = 'block';
+        reviewButton.style.display = 'none';
+      });
+
+      cancelButton.addEventListener('click', () => {
+        reviewForm.style.display = 'none';
+        reviewButton.style.display = 'block';
+      });

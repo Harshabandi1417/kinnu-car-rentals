@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Vehicle Listings
+        link(rel="stylesheet" href="/css/styles1.css")
+    body
+        header
+            h1 Available Vehicles
+            nav
+                a(href="/") Home
+                a(href="/rent") Rent
+                a(href="/about") About
+                a(href="/contact") Contact
+
+        h1 Vehicle Listings
+
+        ul
+            if cars.length === 0
+                li
+                    img(src="/images/default.png" alt="Placeholder")
+                    p No vehicles available. Please add a vehicle.
+            else
+                each vehicle in cars
+                    li
+                        .vehicle-card
+                            h3 #{vehicle.title}
+                            p
+                                strong Name:
+                                | #{vehicle.name}
+                            p
+                                strong Price Per Day:
+                                | #{vehicle.price}
+                            p
+                                strong Description:
+                                | #{vehicle.description}
+                            p
+                                strong Available:
+                                | #{vehicle.available ? 'Yes' : 'No'}
+                            img(src=vehicle.image || '/images/default.png' alt="#{vehicle.title} Image")
+
+                            form(action="/rent/process" method="POST")
+                                input(type="hidden" name="vehicleName" value=#{vehicle.name})
+                                input(type="hidden" name="vehiclePrice" value=#{vehicle.price})
+                                input(type="hidden" name="vehicleDescription" value=#{vehicle.description})
+                                button(type="submit" class="rent-button") Rent
+
+        footer
+            p &copy; 2024 Kinnu Car Rentals | Car Rental Platform

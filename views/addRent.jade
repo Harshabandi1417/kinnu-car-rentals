@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Add Vehicle
+    link(rel="stylesheet", href="/css/styles1.css")
+  body
+    header
+      h1 Add Vehicle
+      a.home-button(href="/") Home
+    form(action="/rent", method="POST")
+      .form-group
+        input(type="text", name="name", placeholder="Vehicle Name", required)
+      .form-group
+        input(type="number", name="pricePerDay", placeholder="Price Per Day", required)
+      .form-group
+        input(type="text", name="description", placeholder="Description", required)
+      .form-group
+        input(type="text", name="image", placeholder="Image URL (optional)")
+      .form-group
+        label(for="available") Available
+        input(type="checkbox", name="available", id="available", checked)
+      button(type="submit") Add Vehicle
+    a(href="/rent") Back to Vehicle Listings
